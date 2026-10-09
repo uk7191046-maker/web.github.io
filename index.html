@@ -1,408 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Uday Kumar - Portfolio</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Uday Kumar — BCA Student Portfolio">
+<title>Uday Kumar | BCA Student</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--bg:#080a0f;--card:#10141b;--line:#202632;--text:#f4f6f8;--muted:#929aa8;--accent:#8df0b5}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px}
+body:after{content:"";position:fixed;width:500px;height:500px;top:-180px;right:-150px;border-radius:50%;background:rgba(141,240,181,.06);filter:blur(90px);z-index:-1}
+a{color:inherit}
+.nav{max-width:1150px;margin:auto;padding:25px 25px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{text-decoration:none;font-weight:700;letter-spacing:2px;display:flex;align-items:center;gap:10px}
+.logo span{width:32px;height:32px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;color:var(--muted);font-size:14px}
+nav a:hover{color:var(--text)}
+.github{border:1px solid var(--line);padding:9px 14px;border-radius:8px;color:var(--text)}
+.hero,.section{max-width:1150px;margin:auto;padding-left:25px;padding-right:25px}
+.hero{min-height:680px;display:grid;grid-template-columns:1.35fr .65fr;align-items:center;gap:70px}
+.eyebrow{font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:bold;margin-bottom:18px}
+h1,h2,h3{line-height:1.08}
+h1{font-size:clamp(50px,7vw,82px);letter-spacing:-4px}
+h1 span{color:var(--muted)}
+.intro{max-width:620px;color:var(--muted);font-size:17px;margin:28px 0 32px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 18px;border-radius:9px;text-decoration:none;font-size:14px;font-weight:bold}
+.primary{background:var(--text);color:#080a0f}
+.secondary{border:1px solid var(--line)}
+.profile-card{min-height:350px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#121820,#0d1015);padding:30px;display:flex;flex-direction:column;justify-content:space-between}
+.initials{width:155px;height:155px;border-radius:50%;margin:auto;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,rgba(141,240,181,.3),transparent 60%),#111720;border:1px solid rgba(141,240,181,.4);font-size:42px;font-weight:bold;color:var(--accent)}
+.status{color:var(--muted);font-size:12px;display:flex;gap:8px;align-items:center}
+.dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 12px var(--accent)}
+.profile-bottom{border-top:1px solid var(--line);padding-top:15px;display:flex;justify-content:space-between;color:#68717d;font-size:11px;letter-spacing:2px}
+.section{padding-top:105px;padding-bottom:105px}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:35px}
+h2{font-size:clamp(35px,5vw,55px);letter-spacing:-2px}
+.note{max-width:300px;color:var(--muted);font-size:14px}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:27px;min-height:260px;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:#37404d}
+.card-top{display:flex;justify-content:space-between;color:#68717d;font-size:10px;letter-spacing:1.5px}
+.card h3{font-size:27px;margin:58px 0 12px}
+.card p{color:var(--muted);font-size:14px}
+.card a{display:inline-block;margin-top:22px;color:var(--accent);text-decoration:none;font-size:13px;font-weight:bold}
+.github-strip{margin-top:16px;border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;justify-content:space-between;align-items:center;background:#0d1117}
+.github-strip small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.github-strip a{color:var(--accent);text-decoration:none;font-size:13px}
+.about{border-top:1px solid var(--line);display:grid;grid-template-columns:.35fr 1fr;gap:70px}
+.about h2{max-width:760px}
+.about p{color:var(--muted);max-width:720px;margin-top:22px;font-size:16px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:38px}
+.fact{border-top:1px solid var(--line);padding-top:14px}
+.fact small{display:block;color:#69727e;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.fact strong{font-size:14px}
+.contact{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.contact h2{font-size:clamp(45px,6vw,68px)}
+.contact p:not(.eyebrow){color:var(--muted);max-width:500px;margin-top:18px}
+.links{display:flex;flex-direction:column;gap:12px}
+.links a{padding:20px;border:1px solid var(--line);border-radius:11px;text-decoration:none;display:flex;justify-content:space-between;gap:15px}
+.links span{color:#69727e;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.links strong{font-size:14px}
+footer{max-width:1150px;margin:auto;border-top:1px solid var(--line);padding:25px;color:#69727e;font-size:11px;display:flex;justify-content:space-between;letter-spacing:1px}
+@media(max-width:800px){
+.nav{padding:20px}
+nav a:not(.github){display:none}
+.hero{padding-top:80px;padding-bottom:80px;grid-template-columns:1fr;gap:45px}
+.profile-card{max-width:430px;width:100%}
+.section{padding-top:75px;padding-bottom:75px}
+.section-title{display:block}
+.note{margin-top:14px}
+.work-grid{grid-template-columns:1fr}
+.about,.contact{grid-template-columns:1fr;gap:35px}
+.facts{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+h1{font-size:48px;letter-spacing:-2.5px}
+.hero,.section{padding-left:20px;padding-right:20px}
+.links a{flex-direction:column}
+footer{padding-left:20px;padding-right:20px}
+}
+</style>
 </head>
-
 <body>
-
-    <!-- ================= NAVIGATION ================= -->
-
-    <header>
-        <nav>
-            <h2>Uday Kumar</h2>
-
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <!-- ================= HOME ================= -->
-
-    <section id="home" class="home">
-
-        <div class="home-content">
-
-            <h1>
-                Hello, I'm <span>Uday Kumar</span>
-            </h1>
-
-            <h2>BCA Graduate & Front-End Developer</h2>
-
-            <p>
-                Welcome to my personal portfolio website.
-                I am interested in web development and creating
-                simple, attractive and responsive websites.
-            </p>
-
-            <button onclick="showMessage()">
-                Know More
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= ABOUT ================= -->
-
-    <section id="about">
-
-        <h1>About Me</h1>
-
-        <div class="card">
-
-            <h2>Uday Kumar</h2>
-
-            <p>
-                I am Uday Kumar. I have completed my Bachelor of
-                Computer Applications (BCA).
-            </p>
-
-            <p>
-                I am interested in Front-End Development,
-                Web Technologies and Software Development.
-            </p>
-
-            <p>
-                I am a quick learner and I enjoy learning new
-                technologies and developing useful web applications.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= EDUCATION ================= -->
-
-    <section id="education">
-
-        <h1>My Education</h1>
-
-        <div class="card">
-
-            <h2>Bachelor of Computer Applications (BCA)</h2>
-
-            <p>
-                <b>Course:</b> BCA
-            </p>
-
-            <p>
-                <b>Institution:</b> SVRFGC
-            </p>
-
-            <p>
-                <b>University:</b> Bangalore University
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= SKILLS ================= -->
-
-    <section id="skills">
-
-        <h1>My Skills</h1>
-
-        <div class="skills-container">
-
-            <div class="skill">
-                <h2>HTML</h2>
-                <p>
-                    Creating the structure of web pages.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h2>CSS</h2>
-                <p>
-                    Designing attractive and responsive websites.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h2>JavaScript</h2>
-                <p>
-                    Adding functionality and interaction to websites.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h2>Java</h2>
-                <p>
-                    Basic programming and object-oriented programming.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h2>SQL</h2>
-                <p>
-                    Creating databases and writing SQL queries.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h2>Git & GitHub</h2>
-                <p>
-                    Managing and sharing software projects.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h2>Responsive Design</h2>
-                <p>
-                    Creating websites for mobile and desktop devices.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h2>Problem Solving</h2>
-                <p>
-                    Finding simple and effective solutions to problems.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h2>Communication</h2>
-                <p>
-                    Good communication and teamwork skills.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PROJECTS ================= -->
-
-    <section id="projects">
-
-        <h1>My Projects</h1>
-
-        <div class="projects-container">
-
-            <div class="project">
-
-                <h2>Personal Portfolio Website</h2>
-
-                <p>
-                    A responsive personal portfolio website
-                    developed using HTML, CSS and JavaScript.
-                </p>
-
-            </div>
-
-
-            <div class="project">
-
-                <h2>Student Management System</h2>
-
-                <p>
-                    A simple project for storing and managing
-                    student information.
-                </p>
-
-            </div>
-
-
-            <div class="project">
-
-                <h2>Online Shopping Website</h2>
-
-                <p>
-                    A simple e-commerce front-end website
-                    created using HTML, CSS and JavaScript.
-                </p>
-
-            </div>
-
-
-            <div class="project">
-
-                <h2>Calculator</h2>
-
-                <p>
-                    A basic calculator developed using
-                    HTML, CSS and JavaScript.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CERTIFICATES ================= -->
-
-    <section id="certificates">
-
-        <h1>My Certificates</h1>
-
-        <div class="certificate-container">
-
-            <div class="certificate">
-
-                <h2>Web Development</h2>
-
-                <p>
-                    Certificate in HTML, CSS and JavaScript
-                </p>
-
-                <span>2026</span>
-
-            </div>
-
-
-            <div class="certificate">
-
-                <h2>Java Programming</h2>
-
-                <p>
-                    Certificate in Java Programming Fundamentals
-                </p>
-
-                <span>2026</span>
-
-            </div>
-
-
-            <div class="certificate">
-
-                <h2>SQL & Database</h2>
-
-                <p>
-                    Certificate in SQL and Database Fundamentals
-                </p>
-
-                <span>2026</span>
-
-            </div>
-
-
-            <div class="certificate">
-
-                <h2>Git & GitHub</h2>
-
-                <p>
-                    Certificate in Version Control using Git and GitHub
-                </p>
-
-                <span>2026</span>
-
-            </div>
-
-
-            <div class="certificate">
-
-                <h2>Responsive Web Design</h2>
-
-                <p>
-                    Certificate in Responsive Web Design
-                </p>
-
-                <span>2026</span>
-
-            </div>
-
-
-            <div class="certificate">
-
-                <h2>Front-End Development</h2>
-
-                <p>
-                    Certificate in Front-End Web Development
-                </p>
-
-                <span>2026</span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CONTACT ================= -->
-
-    <section id="contact">
-
-        <h1>Contact Me</h1>
-
-        <div class="card contact-card">
-
-            <p>
-                <b>Name:</b> Uday Kumar
-            </p>
-
-            <p>
-                <b>Phone:</b>
-                <a href="tel:1234567890">
-                    1234567890
-                </a>
-            </p>
-
-            <p>
-                <b>Email:</b>
-                <a href="mailto:udaykumar@example.com">
-                    udaykumar@example.com
-                </a>
-            </p>
-
-            <p>
-                <b>GitHub:</b>
-                <a href="https://github.com/"
-                   target="_blank">
-                    GitHub Profile
-                </a>
-            </p>
-
-            <p>
-                <b>LinkedIn:</b>
-                <a href="https://www.linkedin.com/"
-                   target="_blank">
-                    LinkedIn Profile
-                </a>
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <p>
-            © 2026 Uday Kumar | Personal Portfolio
-        </p>
-
-    </footer>
-
-
-    <!-- JavaScript -->
-
-    <script src="script.js"></script>
-
+<header class="nav">
+<a class="logo" href="#home"><span>U</span>UDAY KUMAR</a>
+<nav>
+<a href="#work">Work</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<a class="github" href="https://github.com/uk7191046-maker" target="_blank">GitHub ↗</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div>
+<p class="eyebrow">BCA STUDENT · DEVELOPER</p>
+<h1>Building my skills,<br><span>one project at a time.</span></h1>
+<p class="intro">I'm Uday Kumar, a BCA student exploring software development through hands-on coding, web work and personal projects.</p>
+<div class="buttons">
+<a class="btn primary" href="#work">Explore my work ↓</a>
+<a class="btn secondary" href="https://github.com/uk7191046-maker" target="_blank">View GitHub ↗</a>
+</div>
+</div>
+<div class="profile-card">
+<div class="initials">UK</div>
+<div class="status"><span class="dot"></span>Open to learning & opportunities</div>
+<div class="profile-bottom"><span>BCA</span><span>STUDENT</span></div>
+</div>
+</section>
+
+<section class="section" id="work">
+<div class="section-title">
+<div><p class="eyebrow">SELECTED WORK</p><h2>What I've been building</h2></div>
+<p class="note">A growing collection of work from my GitHub.</p>
+</div>
+
+<div class="work-grid">
+<article class="card">
+<div class="card-top"><span>01</span><span>PUBLIC REPOSITORY</span></div>
+<h3>PythonAnywhere Demo</h3>
+<p>A public repository connected with PythonAnywhere experimentation and development practice.</p>
+<a href="https://github.com/uk7191046-maker/pythonanywheredemo" target="_blank">View repository ↗</a>
+</article>
+
+<article class="card">
+<div class="card-top"><span>02</span><span>PUBLIC REPOSITORY</span></div>
+<h3>PythonAnywhere Demo 06</h3>
+<p>Another project repository maintained as part of ongoing development practice.</p>
+<a href="https://github.com/uk7191046-maker/pythonanywheredemo06" target="_blank">View repository ↗</a>
+</article>
+
+<article class="card">
+<div class="card-top"><span>03</span><span>PUBLIC REPOSITORY</span></div>
+<h3>Frontend Work</h3>
+<p>A repository named frontend-d.html, reflecting frontend development practice.</p>
+<a href="https://github.com/uk7191046-maker/frontend-d.html" target="_blank">View repository ↗</a>
+</article>
+
+<article class="card">
+<div class="card-top"><span>04</span><span>PORTFOLIO</span></div>
+<h3>Uday Portfolio</h3>
+<p>An earlier portfolio project and a starting point for presenting my development journey.</p>
+<a href="https://github.com/uk7191046-maker/Udayportfolio.html" target="_blank">View repository ↗</a>
+</article>
+</div>
+
+<div class="github-strip">
+<div><strong>More work on GitHub</strong><small>Explore the complete collection of public repositories.</small></div>
+<a href="https://github.com/uk7191046-maker" target="_blank">Open GitHub profile ↗</a>
+</div>
+</section>
+
+<section class="section about" id="about">
+<div><p class="eyebrow">ABOUT</p></div>
+<div>
+<h2>A BCA student building practical experience through code.</h2>
+<p>I'm currently pursuing a Bachelor of Computer Applications and using projects, coursework and experimentation to develop my programming and development skills.</p>
+<p>This portfolio will grow alongside my work. As I complete more projects, they can be added here with clear descriptions, technologies and live demos where available.</p>
+<div class="facts">
+<div class="fact"><small>Education</small><strong>BCA</strong></div>
+<div class="fact"><small>Focus</small><strong>Development</strong></div>
+<div class="fact"><small>Approach</small><strong>Learning by building</strong></div>
+</div>
+</div>
+</section>
+
+<section class="section contact" id="contact">
+<div>
+<p class="eyebrow">GET IN TOUCH</p>
+<h2>Let's connect.</h2>
+<p>For opportunities, collaboration or to discuss development, feel free to reach out.</p>
+</div>
+<div class="links">
+<a href="mailto:uk7191046@gmail.com"><span>Email</span><strong>uk7191046@gmail.com ↗</strong></a>
+<a href="https://github.com/uk7191046-maker" target="_blank"><span>GitHub</span><strong>@uk7191046-maker ↗</strong></a>
+</div>
+</section>
+</main>
+
+<footer>
+<span>© 2026 Uday Kumar</span>
+<span>BCA · Developer</span>
+</footer>
 </body>
-
 </html>
